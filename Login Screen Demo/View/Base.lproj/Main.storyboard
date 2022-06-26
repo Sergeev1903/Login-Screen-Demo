@@ -22,23 +22,27 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="startColor">
-                                        <color key="value" red="0.96689504380000002" green="0.25877119999999998" blue="0.24770308369999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="value" systemColor="systemGreenColor"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="endColor">
-                                        <color key="value" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="value" systemColor="systemPurpleColor"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Zcf-Ma-9zC" userLabel="Stack View: User &amp; Password TextFields">
                                 <rect key="frame" x="36" y="294" width="342" height="84"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="User Name" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="XiA-t2-rwC">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="User" textAlignment="natural" clearsOnBeginEditing="YES" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="XiA-t2-rwC">
                                         <rect key="frame" x="0.0" y="0.0" width="342" height="34"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="go" textContentType="username"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="VOr-mS-Phg">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" allowsEditingTextAttributes="YES" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" clearsOnBeginEditing="YES" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="VOr-mS-Phg">
                                         <rect key="frame" x="0.0" y="50" width="342" height="34"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="go" textContentType="password"/>
                                     </textField>
@@ -48,6 +52,9 @@
                                 <rect key="frame" x="175.5" y="410" width="63.5" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Log in"/>
+                                <connections>
+                                    <action selector="loginButtonAction" destination="BYZ-38-t0r" eventType="touchUpInside" id="qEb-0S-qdp"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ek0-Qe-KVz" userLabel="Stack View: Forgot Buttons">
                                 <rect key="frame" x="53.5" y="473" width="307" height="31"/>
@@ -56,11 +63,17 @@
                                         <rect key="frame" x="0.0" y="0.0" width="149.5" height="31"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Forgot User Name?"/>
+                                        <connections>
+                                            <action selector="restoreUserName" destination="BYZ-38-t0r" eventType="touchUpInside" id="Jks-a8-EMa"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yme-5F-w2U">
                                         <rect key="frame" x="157.5" y="0.0" width="149.5" height="31"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Forgot Password?"/>
+                                        <connections>
+                                            <action selector="restoreUserPassword" destination="BYZ-38-t0r" eventType="touchUpInside" id="cFv-jX-ZRa"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -77,30 +90,86 @@
                             <constraint firstItem="Zcf-Ma-9zC" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="250" id="sYY-4e-lqg"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="loginButton" destination="lEK-AQ-izo" id="jEf-fu-xYK"/>
+                        <outlet property="restorePasswordButton" destination="Yme-5F-w2U" id="NqB-Pw-oYT"/>
+                        <outlet property="restoreUserButton" destination="qWH-02-bBb" id="vqo-Yu-D69"/>
+                        <outlet property="userNameTextField" destination="XiA-t2-rwC" id="GX0-gC-1cp"/>
+                        <outlet property="userPasswordTextField" destination="VOr-mS-Phg" id="hxX-hV-Y9Q"/>
+                        <segue destination="jXG-rh-dNR" kind="show" identifier="Weclcome" id="nPs-gx-0zI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="Y0a-Hs-yvg" customClass="GradientView" customModule="Login_Screen_Demo" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <viewLayoutGuide key="safeArea" id="nMO-V0-bQP"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="startColor">
+                            <color key="value" systemColor="systemGreenColor"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="endColor">
+                            <color key="value" systemColor="systemYellowColor"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
             </objects>
             <point key="canvasLocation" x="43.478260869565219" y="69.642857142857139"/>
         </scene>
         <!--Welcome Screen-->
         <scene sceneID="Yk8-2l-CQb">
             <objects>
-                <viewController id="jXG-rh-dNR" userLabel="Welcome Screen" sceneMemberID="viewController">
+                <viewController id="jXG-rh-dNR" userLabel="Welcome Screen" customClass="WelcomeViewController" customModule="Login_Screen_Demo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZDf-9a-Aqp">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="JnO-2u-is9">
+                                <rect key="frame" x="132" y="344.5" width="150" height="149"/>
+                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="7ym-Q1-NL2"/>
+                                    <constraint firstAttribute="width" constant="150" id="LY1-uc-3qg"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome User" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DhI-IJ-k1x">
+                                <rect key="frame" x="100" y="244" width="214" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="tav-qO-Zb9"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="DhI-IJ-k1x" firstAttribute="top" secondItem="tav-qO-Zb9" secondAttribute="top" constant="200" id="7Jq-BY-0nR"/>
+                            <constraint firstItem="DhI-IJ-k1x" firstAttribute="leading" secondItem="tav-qO-Zb9" secondAttribute="leading" constant="100" id="LIi-mn-Dqj"/>
+                            <constraint firstItem="tav-qO-Zb9" firstAttribute="trailing" secondItem="DhI-IJ-k1x" secondAttribute="trailing" constant="100" id="cZi-fl-0Fx"/>
+                            <constraint firstItem="JnO-2u-is9" firstAttribute="top" secondItem="DhI-IJ-k1x" secondAttribute="bottom" constant="64" id="gD7-Mo-A8O"/>
+                            <constraint firstItem="JnO-2u-is9" firstAttribute="centerX" secondItem="ZDf-9a-Aqp" secondAttribute="centerX" id="mTn-UI-j7w"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="Ka1-on-1yL"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E7P-GT-Uke" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="44" y="729"/>
+            <point key="canvasLocation" x="43.478260869565219" y="728.57142857142856"/>
         </scene>
     </scenes>
     <resources>
+        <image name="person.circle" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemPurpleColor">
+            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -8,9 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		1D5FE0992868880200F57576 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5FE0982868880200F57576 /* GradientView.swift */; };
+		1D5FE09C28689F4A00F57576 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5FE09B28689F4A00F57576 /* WelcomeViewController.swift */; };
+		1D5FE09E2868A65700F57576 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5FE09D2868A65700F57576 /* User.swift */; };
 		1DBCB84128684E4100F17B41 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DBCB84028684E4100F17B41 /* AppDelegate.swift */; };
 		1DBCB84328684E4100F17B41 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DBCB84228684E4100F17B41 /* SceneDelegate.swift */; };
-		1DBCB84528684E4100F17B41 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DBCB84428684E4100F17B41 /* ViewController.swift */; };
+		1DBCB84528684E4100F17B41 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DBCB84428684E4100F17B41 /* LoginViewController.swift */; };
 		1DBCB84828684E4100F17B41 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1DBCB84628684E4100F17B41 /* Main.storyboard */; };
 		1DBCB84A28684E4400F17B41 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1DBCB84928684E4400F17B41 /* Assets.xcassets */; };
 		1DBCB84D28684E4400F17B41 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1DBCB84B28684E4400F17B41 /* LaunchScreen.storyboard */; };
@@ -18,10 +20,12 @@
 
 /* Begin PBXFileReference section */
 		1D5FE0982868880200F57576 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GradientView.swift; path = ../View/GradientView.swift; sourceTree = "<group>"; };
+		1D5FE09B28689F4A00F57576 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		1D5FE09D2868A65700F57576 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		1DBCB83D28684E4100F17B41 /* Login Screen Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Login Screen Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DBCB84028684E4100F17B41 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1DBCB84228684E4100F17B41 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		1DBCB84428684E4100F17B41 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1DBCB84428684E4100F17B41 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		1DBCB84728684E4100F17B41 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1DBCB84928684E4400F17B41 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1DBCB84C28684E4400F17B41 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -70,6 +74,7 @@
 		1DBCB854286850E200F17B41 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1D5FE09D2868A65700F57576 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -86,7 +91,8 @@
 		1DBCB8572868517100F17B41 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				1DBCB84428684E4100F17B41 /* ViewController.swift */,
+				1DBCB84428684E4100F17B41 /* LoginViewController.swift */,
+				1D5FE09B28689F4A00F57576 /* WelcomeViewController.swift */,
 				1D5FE0982868880200F57576 /* GradientView.swift */,
 			);
 			path = Controller;
@@ -181,7 +187,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1DBCB84528684E4100F17B41 /* ViewController.swift in Sources */,
+				1DBCB84528684E4100F17B41 /* LoginViewController.swift in Sources */,
+				1D5FE09C28689F4A00F57576 /* WelcomeViewController.swift in Sources */,
+				1D5FE09E2868A65700F57576 /* User.swift in Sources */,
 				1DBCB84128684E4100F17B41 /* AppDelegate.swift in Sources */,
 				1D5FE0992868880200F57576 /* GradientView.swift in Sources */,
 				1DBCB84328684E4100F17B41 /* SceneDelegate.swift in Sources */,
