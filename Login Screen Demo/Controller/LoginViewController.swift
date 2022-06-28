@@ -21,19 +21,59 @@ class ViewController: UIViewController {
         
     }
     
+    //MARK: NAVIGATION
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.identifier == "login" else {return}
+        let welcomeVC = segue.destination as! WelcomeViewController
+        welcomeVC.userName = userNameTextField.text
+    }
+    
     //MARK: IBACTIONS
     
-    @IBAction func loginButtonAction(_ sender: UIButton) {
-        print("Access is allowed")
-        showErrorLoginAlert()
+    @IBAction func loginButtonAction() {
+        
+        guard
+            userNameTextField.text?.isEmpty == false,
+            let userName = userNameTextField.text
+        else {
+            showAlert(title: "Empty Field", message: "Enter user name", style: .alert)
+            return
+        }
+        
+        guard
+            userPasswordTextField.text?.isEmpty == false,
+            let userPassword = userPasswordTextField.text
+        else {
+            showAlert(title: "Empty Field", message: "Enter user password", style: .alert)
+            return
+        }
+        
+        if userName == dataBaseUser1.dataUser.userName,
+           userPassword == dataBaseUser1.dataUser.userPassword {
+            print("User name: \(userName)")
+            print("User password: \(userPassword)")
+            print("Access is allowed")
+        } else {
+            showAlert(title: "Wrong user name or password",
+                      message: "Please enter correct value",
+                      style: .actionSheet)
+        }
+        
+        performSegue(withIdentifier: "login", sender: nil)
+        
     }
     
     @IBAction func restoreUserName() {
-        showUserName()
+        showAlert(title: "User name",
+                  message: "\(dataBaseUser1.dataUser.userName)",
+                  style: .alert)
     }
     
     @IBAction func restoreUserPassword() {
-        showUserPassword()
+        showAlert(title: "User password",
+                  message: "\(dataBaseUser1.dataUser.userPassword)",
+                  style: .alert)
     }
     
     
@@ -70,50 +110,17 @@ class ViewController: UIViewController {
         loginButton.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         loginButton.layer.borderWidth = 1
         loginButton.layer.cornerRadius = 5
-    }
-    
-    
-    //MARK: TEXTFIELD ACCESS
-    
-    private  func accesUserNameTextField() {
         
-        guard userNameTextField.text?.isEmpty == false else {return showErrorEmptyTextField()}
-        guard let userName = userNameTextField.text else {return}
-        if userName == dataBaseUser1.dataUser.userName {
-            print("User name: \(userName)")
-        }
-    }
-    
-    private func accesUserPasswordTextField() {
-        
-        guard userPasswordTextField.text?.isEmpty == false else {return showErrorEmptyTextField()}
-        guard let userPassword = userPasswordTextField.text else {return}
-        if userPassword == dataBaseUser1.dataUser.userPassword  {
-            print("User name: \(userPassword)")
-        }
     }
     
     
     //MARK: ALERTS
     
-    private func showErrorLoginAlert() {
+    private func showAlert(title: String, message: String, style: UIAlertController.Style) {
         
-        let alert = UIAlertController(title: "Wrong user name or password",
-                                      message: "Please enter correct value",
-                                      preferredStyle: .actionSheet)
-        let okAction = UIAlertAction(title: "Ok",
-                                     style: .default,
-                                     handler: nil)
-        alert.addAction(okAction)
-        present(alert, animated: true, completion: nil)
-    }
-    
-    
-    private func showErrorEmptyTextField() {
-        
-        let alert = UIAlertController(title: "Text Field is empty",
-                                      message: "Fill in the field",
-                                      preferredStyle: .alert)
+        let alert = UIAlertController(title: title,
+                                      message: message,
+                                      preferredStyle: style)
         let okAction = UIAlertAction(title: "OK",
                                      style: .default,
                                      handler: nil)
@@ -121,31 +128,6 @@ class ViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
-    
-    private func showUserName() {
-        
-        let alert = UIAlertController(title: "User Name",
-                                      message: "\(dataBaseUser1.dataUser.userName)",
-                                      preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK",
-                                     style: .default,
-                                     handler: nil)
-        alert.addAction(okAction)
-        present(alert, animated: true, completion: nil)
-    }
-    
-    
-    private func showUserPassword() {
-        
-        let alert = UIAlertController(title: "User Password ",
-                                      message: "\(dataBaseUser1.dataUser.userPassword)",
-                                      preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK",
-                                     style: .default,
-                                     handler: nil)
-        alert.addAction(okAction)
-        present(alert, animated: true, completion: nil)
-    }
     
 }
 
@@ -154,10 +136,22 @@ class ViewController: UIViewController {
 
 extension ViewController: UITextFieldDelegate {
     
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super .touchesBegan(touches, with: event)
+        view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == userNameTextField {
+            textField.resignFirstResponder()
+            userPasswordTextField.becomeFirstResponder()
+        } else {
+            loginButtonAction()
+        }
+        return true
     }
 }
+
 
 //Create left side icon with padding for textfield
 extension UITextField {
