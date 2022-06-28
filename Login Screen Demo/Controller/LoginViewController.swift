@@ -127,8 +127,12 @@ class ViewController: UIViewController {
         alert.addAction(okAction)
         present(alert, animated: true, completion: nil)
     }
+ 
     
-    
+    @IBAction func unwindSegue(segue: UIStoryboardSegue) {
+        userNameTextField.text = nil
+        userPasswordTextField.text = nil
+    }
 }
 
 
