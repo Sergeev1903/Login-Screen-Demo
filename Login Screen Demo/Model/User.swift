@@ -13,4 +13,5 @@ struct User {
     let userPassword: String
 }
 
-let user = User(userName: "Artem", userPassword: "1234567890")
+let user1 = User(userName: "Artem", userPassword: "12345")
+

@@ -30,18 +30,18 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Zcf-Ma-9zC" userLabel="Stack View: User &amp; Password TextFields">
-                                <rect key="frame" x="36" y="294" width="342" height="84"/>
+                                <rect key="frame" x="36" y="294" width="342" height="60"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="User" textAlignment="natural" clearsOnBeginEditing="YES" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="XiA-t2-rwC">
-                                        <rect key="frame" x="0.0" y="0.0" width="342" height="34"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="User Name" textAlignment="justified" clearsOnBeginEditing="YES" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="XiA-t2-rwC">
+                                        <rect key="frame" x="0.0" y="0.0" width="342" height="22"/>
+                                        <color key="backgroundColor" white="1" alpha="0.10000000000000001" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="go" textContentType="username"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" allowsEditingTextAttributes="YES" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" clearsOnBeginEditing="YES" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="VOr-mS-Phg">
-                                        <rect key="frame" x="0.0" y="50" width="342" height="34"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" allowsEditingTextAttributes="YES" placeholder="Password" textAlignment="justified" clearsOnBeginEditing="YES" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="VOr-mS-Phg">
+                                        <rect key="frame" x="0.0" y="38" width="342" height="22"/>
+                                        <color key="backgroundColor" white="1" alpha="0.10000000000000001" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="go" textContentType="password"/>
@@ -49,20 +49,22 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lEK-AQ-izo">
-                                <rect key="frame" x="175.5" y="410" width="63.5" height="31"/>
+                                <rect key="frame" x="175.5" y="386" width="63.5" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Log in"/>
                                 <connections>
-                                    <action selector="loginButtonAction" destination="BYZ-38-t0r" eventType="touchUpInside" id="qEb-0S-qdp"/>
+                                    <action selector="loginButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qUj-bC-2ir"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ek0-Qe-KVz" userLabel="Stack View: Forgot Buttons">
-                                <rect key="frame" x="53.5" y="473" width="307" height="31"/>
+                                <rect key="frame" x="53.5" y="449" width="307" height="31"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qWH-02-bBb">
                                         <rect key="frame" x="0.0" y="0.0" width="149.5" height="31"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Forgot User Name?"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Forgot User Name?">
+                                            <color key="baseForegroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
                                         <connections>
                                             <action selector="restoreUserName" destination="BYZ-38-t0r" eventType="touchUpInside" id="Jks-a8-EMa"/>
                                         </connections>
@@ -70,7 +72,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yme-5F-w2U">
                                         <rect key="frame" x="157.5" y="0.0" width="149.5" height="31"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Forgot Password?"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Forgot Password?">
+                                            <color key="baseForegroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
                                         <connections>
                                             <action selector="restoreUserPassword" destination="BYZ-38-t0r" eventType="touchUpInside" id="cFv-jX-ZRa"/>
                                         </connections>
@@ -92,8 +96,6 @@
                     </view>
                     <connections>
                         <outlet property="loginButton" destination="lEK-AQ-izo" id="jEf-fu-xYK"/>
-                        <outlet property="restorePasswordButton" destination="Yme-5F-w2U" id="NqB-Pw-oYT"/>
-                        <outlet property="restoreUserButton" destination="qWH-02-bBb" id="vqo-Yu-D69"/>
                         <outlet property="userNameTextField" destination="XiA-t2-rwC" id="GX0-gC-1cp"/>
                         <outlet property="userPasswordTextField" destination="VOr-mS-Phg" id="hxX-hV-Y9Q"/>
                         <segue destination="jXG-rh-dNR" kind="show" identifier="Weclcome" id="nPs-gx-0zI"/>
